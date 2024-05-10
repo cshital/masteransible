@@ -1,6 +1,6 @@
 ---
 - name: loopexample
-  hosts: target
+  hosts: target-vm
   tasks:
     - name: create a file if not exist
       file:
@@ -9,7 +9,7 @@
 
     - name: create file
       file:
-        path: /home/manan/Desktop/made/loop.txt
+        path: /home/Desktop/loop.txt
         state: touch
 
     - name: 
