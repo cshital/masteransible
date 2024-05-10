@@ -1,0 +1,8 @@
+---
+ - name: lineinfile module
+   hosts: target-vm
+   tasks:
+     - name: lineinfile
+       lineinfile:
+          path: /Desktop/load.txt
+          line: "this linefile module"
