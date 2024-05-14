@@ -1,0 +1,47 @@
+diff --git a/ansible/control.yml b/ansible/control.yml
+new file mode 100644
+index 0000000..cab13d4
+--- /dev/null
++++ b/ansible/control.yml
+@@ -0,0 +1,8 @@
++---
++- hosts: control
++  become: true
++  tasks:
++    - name: install tools
++      apt: name={{item}} state=present update_cache=yes
++      with_items:
++        - curl
+diff --git a/ansible/database.yml b/ansible/database.yml
+index 82aa0f1..06dd2cf 100644
+--- a/ansible/database.yml
++++ b/ansible/database.yml
+@@ -4,3 +4,6 @@
+   tasks:
+     - name: install mysql-server
+       apt: name=mysql-server state=present update_cache=yes
++
++    - name: ensure mysql started
++      service: name=mysql state=started enabled=yes
+diff --git a/ansible/loadbalancer.yml b/ansible/loadbalancer.yml
+index 50881f9..435b161 100644
+--- a/ansible/loadbalancer.yml
++++ b/ansible/loadbalancer.yml
+@@ -4,3 +4,6 @@
+   tasks:
+     - name: install nginx
+       apt: name=nginx state=present update_cache=yes
++
++    - name: ensure nginx started
++      service: name=nginx state=started enabled=yes
+diff --git a/ansible/webserver.yml b/ansible/webserver.yml
+index 662bfc9..708e4c7 100644
+--- a/ansible/webserver.yml
++++ b/ansible/webserver.yml
+@@ -9,3 +9,6 @@
+         - libapache2-mod-wsgi
+         - python-pip
+         - python-virtualenv
++
++    - name: ensure apache2 started
++      service: name=apache2 state=started enabled=yes
