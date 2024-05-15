@@ -1,5 +1,0 @@
----
- - name: myrole
-   hosts: target-vm
-   roles:
-     - myrole
