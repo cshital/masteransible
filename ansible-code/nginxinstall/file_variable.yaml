@@ -1,0 +1,15 @@
+---
+- name: directory
+  hosts: target-vm
+  vars:
+    a: aa
+    b: bb
+  become: yes
+  tasks: 
+    - name: directory creation start
+      ansible.builtin.file: 
+        path: "{{ item }}"
+        state: directory
+      with_items: 
+        - /home/shital/"{{ b }}"
+        - /home/shital/"{{ a }}"

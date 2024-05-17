@@ -1,0 +1,3 @@
+[target-vm]
+192.168.1.12 ansible_user=shital ansible_ssh_pass=shital ansible_become_pass=shital
+

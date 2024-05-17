@@ -1,0 +1,13 @@
+---
+- name: Open file and read content
+  hosts: target-vm
+  tasks:
+    - name: Read the content of /home/shital/open.txt
+      ansible.builtin.slurp:
+        src: /home/shital/open.txt
+      register: file_content
+
+    - name: debug and open 
+      ansible.builtin.debug: 
+        msg: "{{ file_content.content | b64decode }}"
+

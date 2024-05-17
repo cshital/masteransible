@@ -1,0 +1,12 @@
+---
+- name: Create files on the target server
+  hosts: target-vm
+  become: true
+  tasks:
+    - name: Create files with content
+      copy:
+        content: "hi\n"
+        dest: "{{ item }}"
+      loop:
+        - /home/file2.txt
+        - /home/file2.txt

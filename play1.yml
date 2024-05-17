@@ -1,5 +1,6 @@
 ---
- - name: myrole
+ - name: playrole
    hosts: target-vm
    roles:
-     - myrole
+     - playrole 
+     

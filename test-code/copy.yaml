@@ -1,0 +1,8 @@
+---
+- name: Copy Files to Remote Hosts
+  hosts: target-vm
+  tasks:
+    - name: Copy file
+      copy:
+        src: /home/einfochips/Documents/ansible-vm-code/masteransible/test-code/sample.txt
+        dest: /home/shital/Downloads

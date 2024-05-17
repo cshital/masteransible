@@ -1,0 +1,17 @@
+---
+- name: install nginx
+  hosts: target-vm
+  gather_facts: yes
+  become: true
+
+  tasks:
+    - name: installation start
+      ansible.builtin.package:
+        name: nginx
+        state: present
+
+    - name: Print all IPv4 addresses if they exist
+      ansible.builtin.debug:
+        msg: "The IPv4 addresses are {{ ansible_facts['ansible_all_ipv4_addresses'] }}"
+      when: ansible_facts['ansible_all_ipv4_addresses'] is defined
+ 
